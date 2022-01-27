@@ -14,11 +14,11 @@ public class ServiceOfferService extends OfferService{
     @Autowired
     private ServiceOffersRepo serviceOffersRepo;
     String line = "";
-    String pathname = "D:/doc";
-    String destination = "D:/anotherdoc";
+    String pathname = "//172.28.141.109/Reports/KD_sales";
+    String destination = "C:/Users/BOZhanakeev/Documents/cvm_offers";
     String fileType = "CVM_offers_services";
 
-    @Scheduled(cron = "0/15 * * * * *")
+    @Scheduled(cron = "0 0/1 * * * *")
     public void execute(){
         ArrayList<String> offers = fileList(pathname, fileType);
         for (String s : offers){

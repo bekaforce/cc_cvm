@@ -42,6 +42,10 @@ public class TariffOffer {
     String previous_tariff_payment; //30
     String Upsell_CVM; //31
     String offer_id; //32
+    String offer_date; //33
+    String login; //34
+    String offer_status; //35
+    String eight_days; //36
 
     public long getId() {
         return Id;
@@ -314,4 +318,37 @@ public class TariffOffer {
     public void setUpsell_CVM(String upsell_CVM) {
         Upsell_CVM = upsell_CVM;
     }
+
+    public String getOffer_date() {
+        return offer_date;
+    }
+
+    public void setOffer_date(String offer_date) {
+        this.offer_date = offer_date;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getOffer_status() {
+        return offer_status;
+    }
+
+    public void setOffer_status(String offer_status) {
+        this.offer_status = offer_status;
+    }
+
+    public String getEight_days() {
+        return eight_days;
+    }
+
+    public void setEight_days(String eight_days) {
+        this.eight_days = eight_days;
+    }
+
 }
