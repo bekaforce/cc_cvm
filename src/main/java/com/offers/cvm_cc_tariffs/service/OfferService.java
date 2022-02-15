@@ -8,11 +8,14 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 @Service
 public class OfferService {
-
     public void copyFile(String filename, String destination){
         try {
             System.out.println("Зашли в папку проверить есть ли файл");
@@ -27,6 +30,25 @@ public class OfferService {
             }
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void renameFile(String fileName, String pathname) throws IOException {
+        File folder = new File(pathname);
+        File[] list = folder.listFiles();
+        Path fileToRenamePath = Paths.get(pathname + "/" + fileName + ".csv");
+        String renamedFile = fileName + " " + LocalDate.now() + ".csv";
+        Path toCheck = Paths.get(pathname + "/" + renamedFile);
+        for (File f : list){
+            if (f.getName().endsWith(fileName + ".csv")){
+                if (!Files.exists(toCheck)){
+                    Files.move(fileToRenamePath, fileToRenamePath.getParent().resolve(renamedFile), StandardCopyOption.REPLACE_EXISTING);
+                    System.out.println("Файл " + fileName + " переименован" + " на " + renamedFile);
+                }
+                else {
+                    System.out.println("Сегодня файл был переименован");
+                }
+            }
         }
     }
 
@@ -46,6 +68,7 @@ public class OfferService {
 
     public boolean compareFiles(String destination, String fromSource, String fileType){
         ArrayList<String> list = fileList(destination, fileType);
+        String fileToday = fileType + " " + LocalDate.now() + ".csv";
         int a = 0;
         for (String result : list){
             if (result == null){
@@ -56,5 +79,9 @@ public class OfferService {
             }
         }
         return false;
+    }
+
+    public boolean checkNull(String getString){
+        return getString.equals("");
     }
 }

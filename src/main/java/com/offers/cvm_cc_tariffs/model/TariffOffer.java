@@ -1,8 +1,11 @@
 package com.offers.cvm_cc_tariffs.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Entity
 public class TariffOffer {
@@ -15,7 +18,7 @@ public class TariffOffer {
     String SubId;//3
     String subscriberNumber; //4
     String channel; //5
-    String operation_date; //6
+    Date operation_date; //6
     String current_tariff; //7
     String previous_tariff; //8
     String comparison; //9
@@ -32,17 +35,17 @@ public class TariffOffer {
     String motivational_number; //20
     String USSD_number; //21
     String region_of_max; //22
-    String upsell; //23
+    Integer upsell; //23
     String seven_days_condition; //24
     String offer_name; //25
-    String offer_payment; //26
+    Integer offer_payment; //26
     String current_tariff_category; //27
     String previous_tariff_category; //28
     String current_tariff_payment; //29
     String previous_tariff_payment; //30
     String Upsell_CVM; //31
     String offer_id; //32
-    String offer_date; //33
+    Date offer_date; //33
     String login; //34
     String offer_status; //35
     String eight_days; //36
@@ -103,11 +106,11 @@ public class TariffOffer {
         this.channel = channel;
     }
 
-    public String getOperation_date() {
+    public Date getOperation_date() {
         return operation_date;
     }
 
-    public void setOperation_date(String operation_date) {
+    public void setOperation_date(Date operation_date) {
         this.operation_date = operation_date;
     }
 
@@ -239,11 +242,11 @@ public class TariffOffer {
         this.region_of_max = region_of_max;
     }
 
-    public String getUpsell() {
+    public Integer getUpsell() {
         return upsell;
     }
 
-    public void setUpsell(String upsell) {
+    public void setUpsell(Integer upsell) {
         this.upsell = upsell;
     }
 
@@ -271,11 +274,11 @@ public class TariffOffer {
         this.offer_name = offer_name;
     }
 
-    public String getOffer_payment() {
+    public Integer getOffer_payment() {
         return offer_payment;
     }
 
-    public void setOffer_payment(String offer_payment) {
+    public void setOffer_payment(Integer offer_payment) {
         this.offer_payment = offer_payment;
     }
 
@@ -319,11 +322,11 @@ public class TariffOffer {
         Upsell_CVM = upsell_CVM;
     }
 
-    public String getOffer_date() {
+    public Date getOffer_date() {
         return offer_date;
     }
 
-    public void setOffer_date(String offer_date) {
+    public void setOffer_date(Date offer_date) {
         this.offer_date = offer_date;
     }
 
